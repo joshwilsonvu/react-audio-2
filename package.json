@@ -1,0 +1,84 @@
+{
+  "name": "react-audio-2",
+  "version": "1.0.0",
+  "description": "A declarative React library for the HTML 5 Audio API.",
+  "scripts": {
+    "build": "babel src -d lib",
+    "build:dev": "babel --watch src -d lib",
+    "lint": "eslint src"
+  },
+  "author": "Josh Wilson",
+  "license": "ISC",
+  "repository": "https://github.com/joshwilsonvu/react-audio-2.git",
+  "dependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.8.13",
+    "@types/webaudioapi": "0.0.27",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-compat": "^3.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 2%",
+    "not maintained node versions",
+    "not IE 11",
+    "not IE_Mob 11",
+    "not Edge 18",
+    "not dead"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:compat/recommended",
+      "plugin:react/recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "react",
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/prop-types": [
+        0
+      ]
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  }
+}
