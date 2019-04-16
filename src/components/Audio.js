@@ -1,7 +1,6 @@
 import React, {useRef, Children, useEffect, useImperativeHandle, forwardRef} from 'react';
 
-const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-
+/*
 const usePrevious = value => {
   const ref = useRef();
   useEffect(() => {
@@ -29,15 +28,7 @@ const useConnect = (ref, next) => {
 };
 
 const useNode = (type, ...args) => {
-  const typeRef = useRef();
-  useEffect(() => {
-    typeRef.current = new type();
-    return () => {
-      typeRef.current = null;
-    }
-  })
-
-
+  return useRef(new type());
 };
 
 const Node = ({next, type}) => {
@@ -65,5 +56,26 @@ const AudioContext = ({children, context}) => {
 
   return <Series context={context}>{children}</Series>
 };
+*/
 
-export default AudioContext;
+const DestImpl = ({context}, ref) => {
+  const input = context.destination;
+  useChain(input, null, ref);
+
+  return null;
+};
+
+// private component helper for AudioContext
+const Destination = forwardRef(DestImpl);
+
+// Reuses Series but route it to the context's destination
+const Audio = ({children, context}) => (
+  <Series>
+    {children}
+    <Destination context={context}/>
+  </Series>
+);
+
+
+
+export default Audio;
