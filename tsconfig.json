@@ -3,12 +3,16 @@
     "outDir": "./lib",
     "target": "es2015",
     "module": "es2015",
+    "typeRoots": ["./node_modules/@types"],
+    "forceConsistentCasingInFileNames": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
     "noImplicitAny": true,
-    "removeComments": true,
     "declaration": true,
     "sourceMap": true,
+    "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["es2015", "dom", "dom.iterable", "scripthost", "webworker", "es2017.typedarrays"]
+    "lib": ["es2015", "dom", "dom.iterable", "scripthost", "webworker", "es2017.typedarrays", "esnext.array"]
   },
   "include": [
     "./src/**/*.tsx",

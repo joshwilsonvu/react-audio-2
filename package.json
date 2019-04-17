@@ -2,10 +2,12 @@
   "name": "react-audio-2",
   "version": "1.0.0",
   "description": "A declarative React library for the HTML 5 Audio API.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "babel src -d lib",
-    "build:dev": "babel --watch src -d lib",
-    "lint": "eslint src"
+    "build": "tsc",
+    "build:dev": "tsc --watch",
+    "lint": "eslint --ext ts src"
   },
   "author": "Josh Wilson",
   "license": "ISC",
@@ -14,18 +16,16 @@
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
     "@types/react": "^16.8.13",
     "@types/webaudioapi": "0.0.27",
-    "babel-eslint": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-plugin-compat": "^3.1.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.6.0"
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "typescript": "^3.4.3"
   },
   "browserslist": [
     "last 1 version",
@@ -36,12 +36,6 @@
     "not Edge 18",
     "not dead"
   ],
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "eslintConfig": {
     "env": {
       "browser": true,
@@ -56,7 +50,7 @@
       "Atomics": "readonly",
       "SharedArrayBuffer": "readonly"
     },
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 2018,
       "sourceType": "module",
@@ -66,14 +60,16 @@
     },
     "plugins": [
       "react",
-      "react-hooks"
+      "react-hooks",
+      "@typescript-eslint"
     ],
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "react/prop-types": [
         0
-      ]
+      ],
+      "@typescript-eslint/no-unused-vars": 2
     },
     "settings": {
       "react": {
