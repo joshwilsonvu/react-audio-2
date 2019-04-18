@@ -1,16 +1,5 @@
-/// <reference types="react" />
-declare const _default: {
-    AudioProvider: ({ children, context }: {
-        children: any;
-        context?: BaseAudioContext | undefined;
-    }) => JSX.Element;
-    useAudioContext: () => BaseAudioContext;
-    Series: import("react").ForwardRefExoticComponent<{
-        children: any;
-    } & import("react").RefAttributes<import("../hooks/useChain").Chain>>;
-    Parallel: import("react").ForwardRefExoticComponent<{
-        children: any;
-    } & import("react").RefAttributes<any>>;
-    Gain: import("react").ForwardRefExoticComponent<object & import("react").RefAttributes<any>>;
-};
-export default _default;
+import { AudioProvider, useAudioContext } from './Audio';
+import { Series } from './Series';
+import { Parallel } from './Parallel';
+import { Gain } from './Gain';
+export { AudioProvider, useAudioContext, Series, Parallel, Gain };

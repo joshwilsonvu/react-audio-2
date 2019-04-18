@@ -1,14 +1,13 @@
 import * as React from 'react';
 import {forwardRef, RefObject} from 'react';
-import {useChain} from '../hooks/useChain';
-import {useChildRefs} from '../hooks/useChildRefs';
+import {use} from '../hooks/useIO';
 
 // Usage
 // <Parallel>    <Parallel>
 //   <Source>...   <Effect/>...
 // </Parallel>   </Parallel>
-const ParallelImpl = ({children}: {children: any}, ref: RefObject<any>) => {
-  const {reffedChildren, refs} = useChildRefs(children);
+const ParallelImpl = (props: {children: any}) => {
+
 
   useChain(ref, refs.flatMap(ref => ref.input), refs.flatMap(ref => ref.output));
 

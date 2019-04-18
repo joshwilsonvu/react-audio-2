@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {forwardRef, useState, createContext, useContext, RefObject} from 'react';
+import {forwardRef, useState, createContext, useContext} from 'react';
 import 'webaudioapi';
-import {useChain} from '../hooks/useChain';
+import {useInput, UseInputProps} from '../hooks/useIO';
 import {Series} from './Series';
 
 // private component helper for AudioContext
-const DestinationImpl = (props: {context: BaseAudioContext}, ref: RefObject<any>): null => {
+const DestinationImpl = (props: UseInputProps): null => {
   const input = useAudioContext().destination;
 
-  useChain(ref, input, null);
+  useInput(input, props);
 
   return null;
 };
@@ -28,7 +28,7 @@ export const AudioProvider = ({children, context}: {children: any, context?: Bas
     <ReactAudioContext.Provider value={audioContext}>
       <Series>
         {children}
-        <Destination context={context!}/>
+        <Destination/>
       </Series>
     </ReactAudioContext.Provider>
   );

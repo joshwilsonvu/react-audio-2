@@ -3,7 +3,7 @@ import {Series} from './Series';
 import {Parallel} from './Parallel';
 import {Gain} from './Gain';
 
-export default {
+export {
   AudioProvider,
   useAudioContext,
   Series,

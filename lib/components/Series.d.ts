@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Chain } from '../hooks/useChain';
-export declare const Series: React.ForwardRefExoticComponent<{
-    children: any;
-} & React.RefAttributes<Chain>>;
+export declare const Series: React.MemoExoticComponent<(props: {
+    children: React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)> | React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>[];
+}) => JSX.Element>;

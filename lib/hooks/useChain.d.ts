@@ -1,4 +1,3 @@
-import { RefObject } from 'react';
 declare type OneInput = AudioNode | AudioParam;
 declare type OneOutput = AudioNode;
 declare type Input = OneInput[];
@@ -8,5 +7,11 @@ export interface Chain {
     output: Output;
     setNext: (next: Chain) => void;
 }
-export declare const useChain: (ref: RefObject<Chain>, input?: AudioNode | AudioParam | OneInput[] | null | undefined, output?: AudioNode | AudioNode[] | null | undefined) => void;
+export interface IO {
+    input: Input;
+    output: Output;
+}
+declare type Resolve<T> = (value: T) => T | PromiseLike<T>;
+export declare const useInput: (resolveInput: Resolve<OneInput[]>, input: OneInput[]) => void;
+export declare const useOutput: (resolveOutput: Resolve<AudioNode[]>, output: AudioNode[], getNext: PromiseLike<OneInput[]>) => void;
 export {};
